@@ -2,14 +2,23 @@ package br.com.joaotozzi.estudandospringboot.model;
 
 import java.util.UUID;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Coffee {
-	private final String id;
+
+	@Id
+	private String id;
 	private String name;
 
 	public Coffee(String id, String name) {
 		this.id = id;
 		this.name = name;
 	}
+	
+	public Coffee() {
+	}	
 
 	public Coffee(String name) {
 		this(UUID.randomUUID().toString(), name);
@@ -25,6 +34,10 @@ public class Coffee {
 
 	public String getId() {
 		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }
